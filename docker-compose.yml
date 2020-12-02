@@ -1,0 +1,30 @@
+version: "3"
+networks:
+  atlas:
+    driver: bridge
+services:
+  api-database:
+    image: mongo:latest
+    container_name: api-database
+    ports:
+      - 27017:27017
+  api-pet-exemple:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: pet
+    ports:
+      - 8080:8080
+      - 5005:5005
+    environment:
+      - PROFILE=dev
+      - DATABASE=workstationdb
+      - DATABASE-URI=mongodb+srv://admin:admin@cluster0.8eplu.mongodb.net/workstationdb?retryWrites=true&w=majority
+    links:
+      - api-database
+    mongo-atlas:
+      image: mongo
+      expose:
+        - "27017"
+      networks:
+        - atlas

@@ -1,0 +1,748 @@
+{
+	"variables": [],
+	"info": {
+		"name": "hackathon",
+		"_postman_id": "af88f046-ff98-d730-ef64-e62b8206260a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OFFICE",
+			"description": "",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/office",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n  \"name\": \"MADRI\",\r\n  \"address\": \"MADRI\",\r\n  \"status\": \"INACTIVE\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "BY ID OFFICE",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/office/5fc2ae5d385cfe4a8882c02d",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"Escritorio Sorocaba\",\r\n  \"address\": \"Sorocaba\",\r\n  \"createdDate\": \"2020-11-28\",\r\n  \"status\": \"ACTIVE\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "ALL OFFICE",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/office",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"Escritorio Sorocaba\",\r\n  \"address\": \"Sorocaba\",\r\n  \"createdDate\": \"2020-11-28\",\r\n  \"status\": \"ACTIVE\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Post copy copy",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/office/1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"Escritorio Sorocaba\",\r\n  \"address\": \"Sorocaba\",\r\n  \"createdDate\": \"2020-11-28\",\r\n  \"status\": \"ACTIVE\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WORKSTATION",
+			"description": "",
+			"item": [
+				{
+					"name": "01 CREATE",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/workstation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"ALPHA25\",\r\n  \"idOffice\": \"5fc2ae5d385cfe4a8882c02d\",\r\n  \"office\": \"2020-11-28\",\r\n  \"group\": \"Bloco-X25\",\r\n  \"status\": \"ACTIVE\",\r\n  \"blocked\": true,\r\n  \"typeWorkstation\": \"DOCK_STATION\",\r\n  \"description\": \"proximo ao banheiro\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "03 GET ALL",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/workstation",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"BLOCOA-B25\",\r\n  \"idOffice\": \"5fc2ae5d385cfe4a8882c02d\",\r\n  \"office\": \"2020-11-28\",\r\n  \"group\": \"Bloco-X25\",\r\n  \"status\": \"ACTIVE\",\r\n  \"blocked\": \"YES\",\r\n  \"typeWorkstation\": \"DESKTOP\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "04 GET BY ID 200",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/workstation/5fc3d60571f41174af4e2809",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"BLOCOA-B25\",\r\n  \"idOffice\": \"5fc2ae5d385cfe4a8882c02d\",\r\n  \"office\": \"2020-11-28\",\r\n  \"group\": \"Bloco-X25\",\r\n  \"status\": \"ACTIVE\",\r\n  \"blocked\": \"YES\",\r\n  \"typeWorkstation\": \"DESKTOP\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "05 NOT FOUND",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/workstation/5fc2d3ca26ec4f63f0659b39",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"BLOCOA-B25\",\r\n  \"idOffice\": \"5fc2ae5d385cfe4a8882c02d\",\r\n  \"office\": \"2020-11-28\",\r\n  \"group\": \"Bloco-X25\",\r\n  \"status\": \"ACTIVE\",\r\n  \"blocked\": \"YES\",\r\n  \"typeWorkstation\": \"DESKTOP\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "06 BLOCKED",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/workstation/5fc3d60571f41174af4e2809/blocked",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"BLOCOA-B25\",\r\n  \"idOffice\": \"5fc2ae5d385cfe4a8882c02d\",\r\n  \"office\": \"2020-11-28\",\r\n  \"group\": \"Bloco-X25\",\r\n  \"status\": \"ACTIVE\",\r\n  \"blocked\": \"YES\",\r\n  \"typeWorkstation\": \"DESKTOP\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "07 UNBLOCKED",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/workstation/5fc3d60571f41174af4e2809/unblocked",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"BLOCOA-B25\",\r\n  \"idOffice\": \"5fc2ae5d385cfe4a8882c02d\",\r\n  \"office\": \"2020-11-28\",\r\n  \"group\": \"Bloco-X25\",\r\n  \"status\": \"ACTIVE\",\r\n  \"blocked\": \"YES\",\r\n  \"typeWorkstation\": \"DESKTOP\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"description": "",
+			"item": [
+				{
+					"name": "CHECKIN",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/booking/5fc3ca0185f6f454c675f7d6/checkin",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"qrCode\" : \"123231232312\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "workstation copy",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/user",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Alisson\",\r\n  \"user\": \"andu\",\r\n  \"email\": \"andu@gft.com\",\r\n  \"status\": \"ACTIVE\",\r\n  \"type\": \"CLIENT\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/user",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Alisson da Cruz Souza\",\r\n  \"user\": \"andu\",\r\n  \"email\": \"andu@gft.com\",\r\n  \"status\": \"ACTIVE\",\r\n  \"type\": \"ADMIN\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET BY ID",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/user/5fc2ef839f9a4061107ebd8e",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Alisson da Cruz Souza\",\r\n  \"user\": \"andu\",\r\n  \"email\": \"andu@gft.com\",\r\n  \"status\": \"ACTIVE\",\r\n  \"type\": \"ADMIN\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET BY ID copy",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/user/5fc2ef839f9a4061107ebd8e",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Alisson da Cruz Souza\",\r\n  \"user\": \"andu\",\r\n  \"email\": \"andu@gft.com\",\r\n  \"status\": \"ACTIVE\",\r\n  \"type\": \"CLIENT\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CHECKIN copy",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/booking/5fc318a8e8014d338bd10362/checkin",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"qrCode\" : \"123\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CHECKIN copy",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/booking/5fc318a8e8014d338bd10362/checkin",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"qrCode\" : \"123\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CHECKOUT copy",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/booking/5fc3ca0185f6f454c675f7d6/checkout",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"bookings\": [\r\n    {\r\n      \"idUser\": \"5fc2f204077e8b3cdd515d55\",\r\n      \"idWorkstation\": \"5fc2cf6ab425d265d38bec3f\",\r\n      \"idOffice\": \"5fc2d1ee8fa98763fd1d4778\",\r\n      \"bookingDate\": \"2020-11-28\",\r\n      \"checkinDate\": \"2020-11-28\",\r\n      \"checkoutDate\": \"2020-11-28\",\r\n      \"sizeHours\": 4,\r\n      \"status\": \"ACTIVE\"\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "workstation copy copy copy",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/user/5fc2ed9cb35f11157f885958",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Alisson da Cruz Souza\",\r\n  \"user\": \"andu\",\r\n  \"email\": \"andu@gft.com\",\r\n  \"status\": \"ACTIVE\",\r\n  \"type\": \"ADMIN\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BOOKING",
+			"description": "",
+			"item": [
+				{
+					"name": "Fluxo de Checkin",
+					"description": "",
+					"item": [
+						{
+							"name": "01 CREATE",
+							"request": {
+								"url": "http://localhost:8080/gft/workstation/v1/booking",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n{\r\n  \"bookings\": [\r\n    {\r\n      \"idUser\": \"5fc2f204077e8b3cdd515d55\",\r\n      \"idWorkstation\": \"5fc2cf6ab425d265d38bec3f\",\r\n      \"idOffice\": \"5fc2d1ee8fa98763fd1d4778\",\r\n      \"bookingDate\": \"2020-11-28\",\r\n      \"checkinDate\": \"2020-11-28\",\r\n      \"checkoutDate\": \"2020-11-28\",\r\n      \"sizeHours\": 4,\r\n      \"status\": \"ACTIVE\"\r\n    }\r\n  ]\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "02 GET BY ID",
+							"request": {
+								"url": "http://localhost:8080/gft/workstation/v1/booking/5fc3ca0185f6f454c675f7d6",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n{\r\n  \"bookings\": [\r\n    {\r\n      \"idUser\": \"5fc2f204077e8b3cdd515d55\",\r\n      \"idWorkstation\": \"5fc2cf6ab425d265d38bec3f\",\r\n      \"idOffice\": \"5fc2d1ee8fa98763fd1d4778\",\r\n      \"bookingDate\": \"2020-11-28\",\r\n      \"checkinDate\": \"2020-11-28\",\r\n      \"checkoutDate\": \"2020-11-28\",\r\n      \"sizeHours\": 4,\r\n      \"status\": \"ACTIVE\"\r\n    }\r\n  ]\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "03 CHECKIN",
+							"request": {
+								"url": "http://localhost:8080/gft/workstation/v1/booking/5fc318a8e8014d338bd10362/checkin",
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n{\r\n  \"qrCode\" : \"123\"\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "04 CHECKOUT",
+							"request": {
+								"url": "http://localhost:8080/gft/workstation/v1/booking/5fc3ca0185f6f454c675f7d6/checkout",
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n{\r\n  \"bookings\": [\r\n    {\r\n      \"idUser\": \"5fc2f204077e8b3cdd515d55\",\r\n      \"idWorkstation\": \"5fc2cf6ab425d265d38bec3f\",\r\n      \"idOffice\": \"5fc2d1ee8fa98763fd1d4778\",\r\n      \"bookingDate\": \"2020-11-28\",\r\n      \"checkinDate\": \"2020-11-28\",\r\n      \"checkoutDate\": \"2020-11-28\",\r\n      \"sizeHours\": 4,\r\n      \"status\": \"ACTIVE\"\r\n    }\r\n  ]\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "BOOKING",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/booking",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"bookings\": [\r\n    {\r\n      \"idUser\": \"5fc2f204077e8b3cdd515d55\",\r\n      \"idWorkstation\": \"5fc2cf6ab425d265d38bec3f\",\r\n      \"idOffice\": \"5fc2d1ee8fa98763fd1d4778\",\r\n      \"bookingDate\": \"2020-12-03\",\r\n      \"startedTime\" : \"09:00\",\r\n      \"finishedTime\" : \"10:00\",\r\n      \"sizeHours\": 1,\r\n      \"status\": \"INACTIVE\"\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET BY ID",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/booking/5fc3ca0185f6f454c675f7d6",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"bookings\": [\r\n    {\r\n      \"idUser\": \"5fc2f204077e8b3cdd515d55\",\r\n      \"idWorkstation\": \"5fc2cf6ab425d265d38bec3f\",\r\n      \"idOffice\": \"5fc2d1ee8fa98763fd1d4778\",\r\n      \"bookingDate\": \"2020-11-28\",\r\n      \"checkinDate\": \"2020-11-28\",\r\n      \"checkoutDate\": \"2020-11-28\",\r\n      \"sizeHours\": 4,\r\n      \"status\": \"ACTIVE\"\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET BY ID USER",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/booking/5fc2f204077e8b3cdd515d55/user",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "idUser",
+								"value": "5fc2f204077e8b3cdd515d55",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"bookings\": [\r\n    {\r\n      \"idUser\": \"5fc2f204077e8b3cdd515d55\",\r\n      \"idWorkstation\": \"5fc2cf6ab425d265d38bec3f\",\r\n      \"idOffice\": \"5fc2d1ee8fa98763fd1d4778\",\r\n      \"bookingDate\": \"2020-11-28\",\r\n      \"checkinDate\": \"2020-11-28\",\r\n      \"checkoutDate\": \"2020-11-28\",\r\n      \"sizeHours\": 4,\r\n      \"status\": \"ACTIVE\"\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CHECKIN",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/booking/5fc318a8e8014d338bd10362/checkin",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"qrCode\" : \"123\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "CHECKOUT",
+					"request": {
+						"url": "http://localhost:8080/gft/workstation/v1/booking/5fc3ca0185f6f454c675f7d6/checkout",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"bookings\": [\r\n    {\r\n      \"idUser\": \"5fc2f204077e8b3cdd515d55\",\r\n      \"idWorkstation\": \"5fc2cf6ab425d265d38bec3f\",\r\n      \"idOffice\": \"5fc2d1ee8fa98763fd1d4778\",\r\n      \"bookingDate\": \"2020-11-28\",\r\n      \"checkinDate\": \"2020-11-28\",\r\n      \"checkoutDate\": \"2020-11-28\",\r\n      \"sizeHours\": 4,\r\n      \"status\": \"ACTIVE\"\r\n    }\r\n  ]\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
