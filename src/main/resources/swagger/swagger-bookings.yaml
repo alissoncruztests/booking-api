@@ -112,7 +112,7 @@ paths:
       parameters:
         - name: id
           in: path
-          description: Code of workstation
+          description: Code of Place
           required: true
           type: string
           x-example: '000001'
@@ -152,7 +152,7 @@ paths:
       parameters:
         - name: id
           in: path
-          description: Code of workstation
+          description: Code of Place
           required: true
           type: string
           x-example: '000001'
@@ -176,28 +176,28 @@ paths:
           schema:
             $ref: '#/definitions/ErrorModel'
 
-  /workstation:
+  /place:
     post:
       tags:
-        - Workstation
-      summary: Create new workstation
-      description: 'Create new workstation.'
-      operationId: createWorkstation
+        - Place
+      summary: Create new place
+      description: 'Create new place.'
+      operationId: createPlace
       produces:
         - application/json
       parameters:
         - in: body
-          name: newWorkstation
-          description: data of the new workstation
+          name: newPlace
+          description: data of the new Place
           required: true
           schema:
-            $ref: '#/definitions/Workstation'
+            $ref: '#/definitions/Place'
 
       responses:
         '201':
           description: Create new resource
           schema:
-            $ref: '#/definitions/WorkstationCode'
+            $ref: '#/definitions/PlaceCode'
         '401':
           description: Authorization Failed
           schema:
@@ -219,10 +219,10 @@ paths:
             - "bearer"
     get:
       tags:
-        - Workstation
-      summary: Gets all workstation
-      description: 'get a workstation'
-      operationId: getWorkstation
+        - Place
+      summary: Gets all Place
+      description: 'get a Place'
+      operationId: getPlace
       produces:
         - application/json
       security:
@@ -232,7 +232,7 @@ paths:
         '200':
           description: Ok
           schema:
-            $ref: '#/definitions/WorkstationsResponse'
+            $ref: '#/definitions/PlacesResponse'
         '401':
           description: Authorization Failed
           schema:
@@ -253,13 +253,13 @@ paths:
 
 
 
-  /workstation/{id}:
+  /place/{id}:
     get:
       tags:
-        - Workstation
-      summary: Gets a workstation
-      description: 'get a workstation'
-      operationId: getWorkstationById
+        - Place
+      summary: Gets a Place
+      description: 'get a Place'
+      operationId: getPlaceById
       produces:
         - application/json
       security:
@@ -268,7 +268,7 @@ paths:
       parameters:
         - name: id
           in: path
-          description: Code of workstation
+          description: Code of Place
           required: true
           type: string
           x-example: '000001'
@@ -276,7 +276,7 @@ paths:
         '200':
           description: Ok
           schema:
-            $ref: '#/definitions/Workstation'
+            $ref: '#/definitions/Place'
         '401':
           description: Authorization Failed
           schema:
@@ -296,13 +296,13 @@ paths:
 
 
 
-  /workstation/{id}/blocked:
+  /place/{id}/blocked:
     patch:
       tags:
-        - Workstation
-      summary: Patch a workstation
-      description: 'get a workstation'
-      operationId: blockedWorkstation
+        - Place
+      summary: Patch a Place
+      description: 'get a Place'
+      operationId: blockedPlace
       produces:
         - application/json
       security:
@@ -311,7 +311,7 @@ paths:
       parameters:
         - name: id
           in: path
-          description: Code of workstation
+          description: Code of Place
           required: true
           type: string
           x-example: '000001'
@@ -335,13 +335,13 @@ paths:
           schema:
             $ref: '#/definitions/ErrorModel'
 
-  /workstation/{id}/unblocked:
+  /place/{id}/unblocked:
     patch:
       tags:
-        - Workstation
-      summary: Patch a workstation
-      description: 'get a workstation'
-      operationId: unblockedWorkstation
+        - Place
+      summary: Patch a Place
+      description: 'get a Place'
+      operationId: unblockedPlace
       produces:
         - application/json
       security:
@@ -350,7 +350,7 @@ paths:
       parameters:
         - name: id
           in: path
-          description: Code of workstation
+          description: Code of Place
           required: true
           type: string
           x-example: '000001'
@@ -1049,8 +1049,8 @@ definitions:
         description: Admin | Cliente
         enum: [admin, cliente]
 
-  Workstation:
-    description: Workstation
+  Place:
+    description: Place
     type: object
     required:
       - name
@@ -1058,22 +1058,22 @@ definitions:
       id:
         type: string
         example: 001
-        description: Name of Workstation
+        description: Name of Place
       idOffice:
         type: string
       name:
         type: string
         example: string
-        description: Name of Workstation
+        description: Name of Place
       description:
         type: string
         example: Fica perto do banheiro
-        description: Name of Workstation
+        description: Name of Place
       createdDate:
         type: string
         format: date-time
         example: yyyy-mm-dd
-        description: Start Date of the validity of the workstation.
+        description: Start Date of the validity of the Place.
       group:
         type: string
         example: Bloco-X22
@@ -1083,20 +1083,20 @@ definitions:
       blocked:
         type: string
         enum: [YES, NO]
-      typeWorkstation:
+      typePlace:
         type: string
         enum: [DESKTOP, DOCK_STATION, PERIFERICOS]
 
-  WorkstationsResponse:
+  PlacesResponse:
     type: object
     properties:
-      workstations:
+      Places:
         type: array
         items:
-          $ref: '#/definitions/Workstation'
+          $ref: '#/definitions/Place'
 
-  WorkstationCode:
-    description: Workstation data
+  PlaceCode:
+    description: Place data
     type: object
     required:
       - id
@@ -1104,23 +1104,23 @@ definitions:
       id:
         type: string
         example: 001
-        description: Unique identifier of the Workstation
+        description: Unique identifier of the Place
 
   Booking:
     description: Booking
     type: object
     required:
       - idUser
-      - idWorkstation
+      - idPlace
     properties:
       idUser:
         type: string
         example: 001
         description: Id of the User
-      idWorkstation:
+      idPlace:
         type: string
         example: 001
-        description: Id of the Workstation
+        description: Id of the Place
       idOffice:
         type: string
         example: 001
@@ -1181,10 +1181,10 @@ definitions:
         type: string
         example: string
         description: Id of the User
-      idWorkstation:
+      idPlace:
         type: string
         example: string
-        description: Id of the Workstation
+        description: Id of the Place
       idOffice:
         type: string
         example: andu

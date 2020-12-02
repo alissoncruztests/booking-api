@@ -17,7 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Builder
 @Document("WorkstationDocument")
-public class WorkstationModel {
+public class PlaceModel {
 
     @Id
     private String id;

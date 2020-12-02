@@ -1,5 +1,5 @@
 package com.api.bookings.service.exception;
 
-public class WorkstationNameException extends RuntimeException{
+public class PlaceNameException extends RuntimeException{
     private static final long serialVersionUID = 1L;
 }

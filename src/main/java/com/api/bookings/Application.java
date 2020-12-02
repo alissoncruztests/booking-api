@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class GftApplication {
+public class Application {
 
 	public static void main(String[] args) throws InterruptedException {
-		SpringApplication.run(GftApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
