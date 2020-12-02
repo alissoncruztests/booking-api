@@ -17,8 +17,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document("OfficeDocument")
-public class OfficeModel {
+@Document("BusinessDocument")
+public class BusinessModel {
 
     @Id
     private String id;
