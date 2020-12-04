@@ -1,8 +1,6 @@
 package com.api.bookings.controller.mapper;
 
-import com.api.bookings.model.ApiBookingResponseTO;
-import com.api.bookings.model.ApiBookingTO;
-import com.api.bookings.model.ApiBookingsTO;
+import com.api.bookings.model.*;
 import com.api.bookings.model.BookingModel;
 import com.api.bookings.model.Enums.StatusBookingEnum;
 
@@ -13,7 +11,7 @@ import static org.joda.time.DateTime.now;
 
 public class BookingMapper {
 
-    public static BookingModel marshallToModel(ApiBookingsTO booking){
+    public static BookingModel marshallToModel(ApiBookingTO booking){
 
         return null;
     }

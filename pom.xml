@@ -156,9 +156,38 @@
 								<dateLibrary>joda</dateLibrary>
 							</configOptions>
 						</configuration>
+
 					</execution>
+
+					<execution>
+						<id>apicoreprocess</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>src/main/resources/swagger/swagger-product.yaml</inputSpec>
+							<language>spring</language>
+							<configHelp />
+							<modelPackage>com.api.bookings.model</modelPackage>
+							<apiPackage>com.api.bookings.api</apiPackage>
+<!--							<modelNamePrefix>Api</modelNamePrefix>-->
+							<modelNameSuffix>TO</modelNameSuffix>
+							<configOptions>
+								<generateSupportingFiles>false</generateSupportingFiles>
+								<sourceFolder>gen</sourceFolder>
+								<interfaceOnly>true</interfaceOnly>
+								<dateLibrary>java7</dateLibrary>
+								<java7>true</java7>
+								<interfaceOnly>true</interfaceOnly>
+								<dateLibrary>joda</dateLibrary>
+							</configOptions>
+						</configuration>
+					</execution>
+
 				</executions>
+
 			</plugin>
+
 		</plugins>
 
 		<resources>

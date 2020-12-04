@@ -1,0 +1,345 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: Core API
+  description: 'Service exemplo.'
+  contact:
+    name: Alisson da Cruz Souza - Java Developer
+    email: alissoncruz.si@gmail.com
+host: sandbox-api.test.com.br
+basePath: /api/v1
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /product:
+    post:
+      tags:
+        - Product
+      summary: Create new product
+      description: 'Create new product.'
+      operationId: createProduct
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: newProduct
+          description: data of the new Product
+          required: true
+          schema:
+            $ref: '#/definitions/Product'
+      responses:
+
+        '201':
+          description: Create new resource
+          schema:
+            $ref: '#/definitions/ProductCode'
+        '401':
+          description: Authorization Failed
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '404':
+          description: Document not found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+      security:
+        - OauthSecurity:
+            - "bearer"
+    get:
+      tags:
+        - Product
+      summary: Gets all products
+      description: 'get a product'
+      operationId: getProducts
+      produces:
+        - application/json
+      security:
+        - OauthSecurity:
+            - bearer
+
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ResponseProducts'
+        '401':
+          description: Authorization Failed
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '404':
+          description: Document not found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+  /product/{code}:
+    get:
+      tags:
+        - Product
+      summary: Gets a product
+      description: 'get a product'
+      operationId: getProduct
+      produces:
+        - application/json
+      security:
+        - OauthSecurity:
+            - bearer
+      parameters:
+        - name: code
+          in: path
+          description: Code of product
+          required: true
+          type: string
+          x-example: '000001'
+      responses:
+        '200':
+          description: Ok
+          schema:
+            $ref: '#/definitions/ResponseProducts'
+        '401':
+          description: Authorization Failed
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '404':
+          description: Document not found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+
+    put:
+      tags:
+        - Product
+      summary: Update a product
+      description: 'get a product'
+      operationId: updateProduct
+      produces:
+        - application/json
+      security:
+        - OauthSecurity:
+            - bearer
+      parameters:
+        - name: code
+          in: path
+          description: Code of the product
+          required: true
+          type: string
+          x-example: 'XPTO'
+        - name: Product
+          in: body
+          description: data of the Product
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateProduct'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '404':
+          description: Not found
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '422':
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        '500':
+          description: Internal error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+        default:
+          description: Unexpected Error
+          schema:
+            $ref: '#/definitions/ErrorModel'
+
+
+securityDefinitions:
+  OauthSecurity:
+    type: oauth2
+    flow: accessCode
+    authorizationUrl: 'https://sandbox-api.exemple.com.br/security/iam/v1/user-identities/login'
+    tokenUrl: 'https://sandbox-api.exemple.com.br/security/iam/v1/user-identities/login'
+    scopes:
+      bearer: Client authorization token - Bearer JWT
+security:
+  - OauthSecurity:
+      - bearer
+
+definitions:
+
+  Product:
+    description: Object Product
+    type: object
+    required:
+      - name
+      - description
+    properties:
+      name:
+        type: string
+        example: string
+        description: Name of product
+      description:
+        type: string
+        example: string
+        description: Name of product
+      price:
+        type: number
+        example: 59.90
+        minimum: 0
+        exclusiveMinimum: true
+        description: Total value available for the Product.
+      date:
+        type: string
+        format: date-time
+        example: yyyy-mm-dd
+        description: Start Date of the validity of the product.
+      user:
+        type: string
+        example: 000001
+        description: Unique identifier of the User
+      category:
+        type: string
+        example: Category
+        description: Unique identifier of the Category
+
+
+  ResponseProducts:
+    type: object
+    required:
+      - product
+    properties:
+      product:
+        type: array
+        items:
+          $ref: '#/definitions/ProductResponse'
+
+
+  ProductResponse:
+    description: Product data
+    type: object
+    properties:
+      code:
+        type: string
+        example: 123
+        description: Name of the Product
+      name:
+        type: string
+        example: pencil
+        description: Name of the Product
+      description:
+        type: string
+        example: write
+        description: Name of the Product
+      price:
+        type: number
+        example: 59.90
+        minimum: 0
+        exclusiveMinimum: true
+        description: Total value available for the Product.
+      date:
+        type: string
+        format: date-time
+        example: yyyy-mm-dd
+        description: Start Date of the validity of the Product.
+      user:
+        type: string
+        example: 000001
+        description: Unique identifier of the User
+      category:
+        type: string
+        example: Category
+        description: Unique identifier of the Category
+
+
+  UpdateProduct:
+    description: Product data
+    type: object
+    required:
+      - name
+      - description
+      - price
+      - startDate
+      - endDate
+      - status
+    properties:
+      name:
+        type: string
+        example: string
+        description: Name of the Product
+      description:
+        type: string
+        example: string
+        description: Name of the Product
+      price:
+        type: number
+        example: 59.90
+        minimum: 0
+        exclusiveMinimum: true
+        description: Total value available for the Product.
+      date:
+        type: string
+        format: date
+        example: yyyy-mm-dd
+        description: Start Date of the validity of the Product.
+      user:
+        type: string
+        example: 000001
+        description: Unique identifier of the User
+      category:
+        type: string
+        example: Category
+        description: Unique identifier of the Category
+
+  ErrorModel:
+    type: object
+    required:
+      - codeBuilderComplete
+      - message
+    properties:
+      code:
+        type: string
+      message:
+        type: string
+
+
+  ProductCode:
+    description: Product data
+    type: object
+    required:
+      - code
+    properties:
+      code:
+        type: string
+        example: EX-000001
+        description: Unique identifier of the Product
