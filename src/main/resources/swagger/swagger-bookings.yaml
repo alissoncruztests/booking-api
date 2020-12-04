@@ -918,7 +918,7 @@ definitions:
         description: Unique identifier of the Office
       name:
         type: string
-        example: Escritorio Sorocaba
+        example: Restaurant
         description: Name
       address:
         type: string
@@ -1059,7 +1059,7 @@ definitions:
         type: string
         example: 001
         description: Name of Place
-      idOffice:
+      idBusiness:
         type: string
       name:
         type: string
@@ -1085,7 +1085,7 @@ definitions:
         enum: [YES, NO]
       typePlace:
         type: string
-        enum: [DESKTOP, DOCK_STATION, PERIFERICOS]
+        enum: [RESTAURANT, HOTEL, HOUSE, HOSTEL, APARTMENT]
 
   PlacesResponse:
     type: object
@@ -1121,7 +1121,7 @@ definitions:
         type: string
         example: 001
         description: Id of the Place
-      idOffice:
+      idBusiness:
         type: string
         example: 001
         description: Id of the Office
