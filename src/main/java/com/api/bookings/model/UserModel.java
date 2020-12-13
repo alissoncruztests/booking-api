@@ -34,4 +34,6 @@ public class UserModel {
     private StatusEnum statusEnum;
 
     private TypeUserEnum type;
+
+    private LoginModel loginModel;
 }
