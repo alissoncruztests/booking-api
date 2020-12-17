@@ -957,6 +957,9 @@ definitions:
         type: string
         example: andu
         description: Unique identifier of the User
+      password:
+        type: string
+        example: 123
       email:
         type: string
         example: string
@@ -995,6 +998,9 @@ definitions:
         type: string
         example: andu
         description: Unique identifier of the User
+      password:
+        type: string
+        example: 123
       email:
         type: string
         example: string
@@ -1031,6 +1037,9 @@ definitions:
         type: string
         example: andu
         description: Unique identifier of the User
+      password:
+        type: string
+        example: 123
       email:
         type: string
         example: string

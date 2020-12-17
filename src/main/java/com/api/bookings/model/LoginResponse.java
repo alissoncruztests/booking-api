@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class LoginModel {
-        private String username;
-        private String password;
+public class LoginResponse {
+
+    private String token;
+
 
 }

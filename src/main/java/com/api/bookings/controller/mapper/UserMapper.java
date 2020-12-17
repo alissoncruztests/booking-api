@@ -28,6 +28,7 @@ public class UserMapper {
         return UserModel.builder()
                 .name(to.getName())
                 .user(to.getUser())
+                .password(to.getPassword())
                 .email(to.getEmail())
                 .statusEnum(to.getStatus().name().equals("ACTIVE") ? StatusEnum.ACTIVE : StatusEnum.INACTIVE)
                 .type(to.getType().name().equals("ADMIN") ? TypeUserEnum.ADMIN : TypeUserEnum.CLIENT)
@@ -39,6 +40,7 @@ public class UserMapper {
         to.setId(model.getId());
         to.setName(model.getName());
         to.setUser(model.getUser());
+        to.password(model.getPassword());
         to.setEmail(model.getEmail());
         to.setCreatedDate(model.getCreatedDate());
         to.setUpdateDate(model.getUpdatedDate());

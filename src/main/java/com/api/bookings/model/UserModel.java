@@ -25,6 +25,8 @@ public class UserModel {
 
     private String user;
 
+    private String password;
+
     private String email;
 
     private DateTime createdDate;

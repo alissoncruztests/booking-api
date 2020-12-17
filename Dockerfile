@@ -7,7 +7,7 @@ ENV ADDITIONAL_OPTS=${ADDITIONAL_OPTS}
 
 WORKDIR /opt
 
-COPY /target/booking-gft-api-0.0.1.jar booking-gft-api-0.0.1-.jar
+COPY /target/bookings-api-0.0.1.jar bookings-api-0.0.1-.jar
 
 SHELL ["/bin/sh", "-c"]
 
