@@ -34,19 +34,6 @@ public class AuthenticationLoginImp implements AuthenticationLogin {
                 .token(jwt)
                 .build();
         System.out.println( result.block().toString());
-
-        /*Mono<LoginModel> monoLogin =
-                this.loginWebClient
-                        .post()
-                        .uri("/login")
-                        .body(BodyInserters.fromValue(LoginModel.builder()
-                                .username(model.getUsername())
-                                .password(model.getPassword())
-                                .build()))
-                        .retrieve()
-                        .bodyToMono(LoginModel.class);
-
-*/
         return response;
     }
 
