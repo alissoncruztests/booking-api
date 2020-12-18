@@ -16,9 +16,9 @@ public class Application {
 	}
 
 	@Bean
-	public WebClient webClientProdutos(WebClient.Builder builder) {
+	public WebClient webClientLogin(WebClient.Builder builder) {
 		return builder
-				.baseUrl("http://localhost:8082")
+				.baseUrl("https://iam-api-madein-pi.herokuapp.com")
 				.defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
 				.build();
 	}
