@@ -15,7 +15,10 @@
 	<description>Bookings</description>
 
 	<properties>
-		<java.version>11</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!--<java.version>11</java.version>-->
+		<java.version>1.8</java.version>
 		<swagger.codegen.version>2.3.1</swagger.codegen.version>
 		<swagger.version>1.5.9</swagger.version>
 	</properties>
@@ -149,7 +152,10 @@
 
 	<build>
 		<plugins>
-
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
