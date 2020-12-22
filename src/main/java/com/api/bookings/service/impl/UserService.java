@@ -23,6 +23,10 @@ public class UserService implements IUserService {
             throw new RuntimeException();
         }
         newUser.setCreatedDate(now());
+        Optional<UserModel> model = userRepository.findByEmail(newUser.getEmail());
+        if(model.isPresent()){
+            throw new RuntimeException("Object exist");
+        }
         return userRepository.save(newUser);
     }
 
@@ -52,6 +56,16 @@ public class UserService implements IUserService {
     public UserModel updateUser(UserModel model) {
         model.setUpdatedDate(now());
         return userRepository.save(model);
+    }
+
+    @Override
+    public UserModel findByEmail(String email) {
+        Optional<UserModel> model = userRepository.findByEmail(email);
+        Optional<UserModel> first = model.stream().findFirst();
+        if (first.isPresent()) {
+            return first.get();
+        }
+        return null;
     }
 
     private void verifyIfPersonExists(String id){
