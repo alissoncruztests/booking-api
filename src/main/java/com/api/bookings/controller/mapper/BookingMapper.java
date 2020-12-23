@@ -21,8 +21,8 @@ public class BookingMapper {
 
         booking.getBookings().stream().forEach(b ->{
             BookingModel m = BookingModel.builder()
-                    .idOffice(b.getIdPlace())
-                    .idWorkstation(b.getIdPlace())
+                    .idPlace(b.getIdPlace())
+                    .idBusiness(b.getIdBusiness())
                     .bookingDate(b.getBookingDate())
                     .idUser(b.getIdUser())
                     .sizeHours(Integer.valueOf(b.getSizeHours()))
@@ -101,12 +101,12 @@ public class BookingMapper {
         to.setBookingDate(model.getBookingDate());
         to.setCheckinDate(model.getCheckInDate());
         to.setCheckoutDate(model.getCheckoutDate());
-        to.setIdOffice(model.getIdOffice());
+        to.setIdPlace(model.getIdPlace());
         to.setStatus(statusBookingTo(model.getStatusBookingEnum()));
         to.setSizeHours(model.getSizeHours().toString());
         to.setStartedDatetime(model.getStartedTime());
         to.setFinishedDatetime(model.getFinishedTime());
-        to.setIdPlace(model.getIdWorkstation());
+        to.setIdBusiness(model.getIdBusiness());
         to.setCodeBar(model.getCodeBar());
         return to;
     }

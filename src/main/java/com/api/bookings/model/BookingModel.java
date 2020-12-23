@@ -6,8 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.joda.time.DateTime;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Id;
+
 
 @Data
 @NoArgsConstructor
@@ -18,9 +20,10 @@ public class BookingModel {
 
     @Id
     private String id;
+
     private String idUser;
-    private String idWorkstation;
-    private String idOffice;
+    private String idPlace;
+    private String idBusiness;
     private DateTime bookingDate;
     private DateTime checkInDate;
     private DateTime checkoutDate;

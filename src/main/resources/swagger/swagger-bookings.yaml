@@ -1194,7 +1194,7 @@ definitions:
         type: string
         example: string
         description: Id of the Place
-      idOffice:
+      idBusiness:
         type: string
         example: andu
         description: Id of the Office

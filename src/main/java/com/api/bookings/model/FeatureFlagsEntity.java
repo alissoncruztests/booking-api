@@ -12,12 +12,14 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "ConfigurationRolesEntity")
-public class ConfigurationRolesEntity {
+@Table(name = "FeatureFlagsEntity")
+public class FeatureFlagsEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
+
+    private String status;
 }
