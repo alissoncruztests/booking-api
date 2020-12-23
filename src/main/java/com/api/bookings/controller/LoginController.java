@@ -46,6 +46,7 @@ public class LoginController extends BaseController{
         List<String> authorities = new ArrayList<>();
         authorities.add("USER");
         String jwt = "token";
+
         LoginByEmailModel response = LoginByEmailModel.builder()
                 .email(user.getEmail())
                 .jwt(jwt)

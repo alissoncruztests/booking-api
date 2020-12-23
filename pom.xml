@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.api.bookings</groupId>
 	<artifactId>bookings-api</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<name>api-core-spring-boot</name>
 	<description>Bookings</description>
 
@@ -151,6 +151,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<addResources>true</addResources>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

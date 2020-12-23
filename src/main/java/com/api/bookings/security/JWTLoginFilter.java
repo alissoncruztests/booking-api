@@ -1,6 +1,8 @@
 package com.api.bookings.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,6 +21,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(JWTLoginFilter.class);
 
     public JWTLoginFilter(String url, AuthenticationManager authManager) {
         super(new AntPathRequestMatcher(url));
@@ -46,6 +50,7 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
                                             HttpServletResponse response,
                                             FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
+        LOGGER.info("Authenticator started... Method successfulAuthentication");
         List<String> authorities = auth.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList());
         TokenAuthenticationService.addAuthentication(response, auth.getName(), authorities);
     }
