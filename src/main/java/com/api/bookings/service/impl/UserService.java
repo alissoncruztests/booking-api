@@ -61,9 +61,8 @@ public class UserService implements IUserService {
     @Override
     public UserModel findByEmail(String email) {
         Optional<UserModel> model = userRepository.findByEmail(email);
-        Optional<UserModel> first = model.stream().findFirst();
-        if (first.isPresent()) {
-            return first.get();
+        if (model.isPresent()) {
+            return model.get();
         }
         return null;
     }
