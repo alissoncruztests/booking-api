@@ -3,7 +3,7 @@ package com.api.bookings.service.impl;
 import com.api.bookings.model.PlaceModel;
 import com.api.bookings.repository.PlaceRepository;
 import com.api.bookings.service.IPlaceService;
-import com.api.bookings.service.exception.PlaceNameException;
+import com.api.bookings.exceptionhandler.exception.PlaceNameException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

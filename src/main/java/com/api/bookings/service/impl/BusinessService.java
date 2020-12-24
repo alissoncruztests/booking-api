@@ -4,7 +4,7 @@ import com.api.bookings.model.Enums.StatusEnum;
 import com.api.bookings.model.BusinessModel;
 import com.api.bookings.repository.OfficeRepository;
 import com.api.bookings.service.IBusinessService;
-import com.api.bookings.service.exception.OfficeNameException;
+import com.api.bookings.exceptionhandler.exception.OfficeNameException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

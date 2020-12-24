@@ -13,11 +13,13 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Table(name = "ConfigurationRolesEntity")
-public class ConfigurationRolesEntity {
+public class EndpointsConfigurationEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     private String name;
+    private String path;
+    private String status;
+
 }

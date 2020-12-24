@@ -2,7 +2,9 @@ package com.api.bookings.service.impl;
 
 import com.api.bookings.model.BookingModel;
 import com.api.bookings.model.Enums.StatusBookingEnum;
+import com.api.bookings.repository.BookingJpaRepository;
 import com.api.bookings.repository.BookingRepository;
+import com.api.bookings.repository.IUserRepository;
 import com.api.bookings.service.IBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +19,10 @@ public class BookingServiceImpl implements IBookingService {
 
 
     @Autowired
-    private BookingRepository bookingRepository;
+    private BookingJpaRepository bookingRepository;
 
+    @Autowired
+    private IUserRepository userRepository;
 
     @Override
     public BookingModel createBooking(BookingModel bookingModel) {

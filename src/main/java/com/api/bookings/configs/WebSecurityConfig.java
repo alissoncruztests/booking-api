@@ -20,7 +20,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                     .antMatchers(HttpMethod.POST, "/booking/v1/login").permitAll()
+
                     .antMatchers("/booking/v1/booking").permitAll()
+                    .antMatchers("/booking/v1/booking/{id}").permitAll()
+                    .antMatchers("/booking/v1/booking/{id}/user").permitAll()
                     .antMatchers("/booking/v1/loginByEmail").permitAll()
                     .antMatchers("/booking/v1/user").permitAll()
                     .antMatchers("/booking/v1/loginByEmail").permitAll()

@@ -1,8 +1,9 @@
 package com.api.bookings.exceptionhandler;
 
-import com.api.bookings.service.exception.OfficeNameException;
-import com.api.bookings.service.exception.PlaceNameException;
-import com.api.bookings.service.exception.UserNameException;
+import com.api.bookings.exceptionhandler.exception.BookingNameException;
+import com.api.bookings.exceptionhandler.exception.OfficeNameException;
+import com.api.bookings.exceptionhandler.exception.PlaceNameException;
+import com.api.bookings.exceptionhandler.exception.UserNameException;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -26,6 +27,14 @@ import java.util.List;
 public class WorkstationExceptionHandler extends ResponseEntityExceptionHandler {
     @Autowired
     private MessageSource messageSource;
+
+    @ExceptionHandler({BookingNameException.class})
+    public ResponseEntity<Object> handleBookingsNameException(BookingNameException ex, WebRequest request){
+        String mensagemUsuario = messageSource.getMessage("bookings.name-invalido-ou-existente", null, LocaleContextHolder.getLocale());
+        String mensagemDesenvolvedor = ex.toString();
+        List<Erro> erros = Arrays.asList(new Erro(mensagemUsuario, mensagemDesenvolvedor));
+        return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+    }
 
     @ExceptionHandler({UserNameException.class})
     public ResponseEntity<Object> handleUserNameException(UserNameException ex, WebRequest request){
