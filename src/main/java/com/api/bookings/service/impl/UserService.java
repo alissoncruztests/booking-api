@@ -32,9 +32,9 @@ public class UserService implements IUserService {
 
     @Override
     public UserModel findById(String id) {
-        Optional<UserModel> model = userRepository.findById(id);
-        verifyIfPersonExists(id);
-        return model.get();
+        /*Optional<UserModel> model = userRepository.findById(id);
+        verifyIfPersonExists(id);*/
+        return null;
     }
 
     @Override
@@ -60,10 +60,7 @@ public class UserService implements IUserService {
 
     @Override
     public UserModel findByEmail(String email) {
-        Optional<UserModel> model = userRepository.findByEmail(email);
-        if (model.isPresent()) {
-            return model.get();
-        }
+       // Optional<UserModel> model = userRepository.findByEmail(email);
         return null;
     }
 
