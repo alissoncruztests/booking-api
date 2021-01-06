@@ -30,8 +30,8 @@ public class UserMapper {
                 .user(to.getUser())
                 .password(to.getPassword())
                 .email(to.getEmail())
-                .statusEnum(to.getStatus().name().equals("ACTIVE") ? StatusEnum.ACTIVE : StatusEnum.INACTIVE)
-                .type(to.getType().name().equals("ADMIN") ? TypeUserEnum.ADMIN : TypeUserEnum.CLIENT)
+                .statusEnum(to.getStatus() == null || to.getStatus().name().equals("ACTIVE") ? StatusEnum.ACTIVE : StatusEnum.INACTIVE)
+                .type(to.getType() == null || to.getType().name().equals("ADMIN") ? TypeUserEnum.ADMIN : TypeUserEnum.CLIENT)
                 .build();
     }
 
